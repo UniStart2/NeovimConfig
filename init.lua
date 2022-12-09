@@ -1,21 +1,25 @@
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
-require "user.telescope"
-require "user.gitsigns"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.nvim-tree"
-require "user.bufferline"
-require "user.lualine"
-require "user.toggleterm"
-require "user.project"
-require "user.impatient"
-require "user.indentline"
-require "user.alpha"
-require "user.whichkey"
-require "user.autocommands"
+-- nvim配置入口文件
+-- 基础配置
+require("basic")
+-- Packer插件管理
+require("plugins")
+-- 快捷键映射
+require("keybindings")
+-- 主题设置
+require("colorscheme")
+
+-->>>>>>>>>>>>>>>>>>>> 插件配置 <<<<<<<<<<<<<<<<<<<<<<<--
+-- nvim-tree 插件配置
+require("plugin-config.nvim-tree")
+-- bufferline 插件配置
+require("plugin-config.bufferline")
+-- lualine 插件配置
+require("plugin-config.lualine")
+-- telescope 插件配置
+require("plugin-config.telescope")
+-- dashboard 插件配置
+require("plugin-config.dashboard")
+require("plugin-config.project")
+-- nvim-treesitter 插件配置
+require("plugin-config.nvim-treesitter")
+-->>>>>>>>>>>>>>>>>>>> 插件配置 <<<<<<<<<<<<<<<<<<<<<<<--
