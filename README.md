@@ -12,4 +12,4 @@ chris@machine")
 - Neovim安装插件时出现git超时问题解决
 	1. 使用代理
 	2. 修改packe.nvim使用的镜像，参考[issue](https://github.com/nshen/learn-neovim-lua/issues/18)
-
+  3. 使用ssh的方式下载插件
