@@ -27,7 +27,7 @@ treesitter.setup({
       -- 外扩
       node_incremental = "<CR>",
       -- 内收
-      node_decremental = "<DEL>",
+      node_decremental = "<BS>",
       scope_incremental = "<TAB>",
     },
   },
@@ -35,6 +35,14 @@ treesitter.setup({
   indent = {
     enable = true
   },
+  -- rainbow
+  rainbow = {
+    enable = false,
+    extended_mode = true,
+    max_file_lines = nil,
+    -- colors = {},
+    -- termcolors = {},
+  }
 })
 
 -- 开启 Folding 模块

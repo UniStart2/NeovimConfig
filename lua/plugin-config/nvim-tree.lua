@@ -1,3 +1,4 @@
+-- neovim 侧边栏显示配置
 local status, nvim_tree = pcall(require, "nvim-tree")
 if not status then
   vim.notify("Not found nvim-tree")

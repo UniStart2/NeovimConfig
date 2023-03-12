@@ -37,11 +37,6 @@ db.custom_center = {
     desc = "Edit .zshrc                         ",
     action = "edit ~/.zshrc",
   },
-  -- {
-  --   icon = "  ",
-  --   desc = "Find text                           ",
-  --   action = "Telescopecope live_grep",
-  -- },
 }
 
 -- 自定义顶部显示ASCII图片

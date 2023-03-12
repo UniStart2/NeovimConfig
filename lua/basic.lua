@@ -53,9 +53,9 @@ vim.o.mouse = "a"
 vim.o.backup = false
 vim.o.writebackup = false
 vim.swapfile = false
--- 设置smaller updatetime（默认500ms）
+-- 设置smaller updatetime
 vim.o.updatetime = 500
--- 设置等待键盘快捷键连击时间,（默认1000ms）
+-- 设置等待键盘快捷键连击时间
 vim.o.timeoutlen = 1000
 -- split window 分屏设置
 vim.o.splitbelow = true

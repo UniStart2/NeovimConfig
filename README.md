@@ -1,4 +1,4 @@
-# 个人Neovim配置
+s# 个人Neovim配置
 
 ## 参考
 - [Neovim IDE from Scratch](https://www.youtube.com/watch?v=ctH-a-1eUME&t=11s "Youtube - 
@@ -13,3 +13,9 @@ chris@machine")
 	1. 使用代理
 	2. 修改packe.nvim使用的镜像，参考[issue](https://github.com/nshen/learn-neovim-lua/issues/18)
   3. 使用ssh的方式下载插件
+
+## 使用说明
+1. 确保已经安装[Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)（0.8.0及以上）
+2. 确保已经安装一种[Nerd fonts](https://www.nerdfonts.com/font-downloads)字体
+3. 克隆仓库配置文件到本地
+  - Linux/MacOS: 克隆到 ~/.config/nvim 文件夹中

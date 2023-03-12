@@ -52,14 +52,13 @@ map("n", "<A-l>", "<C-w>l", opt)
 -- 左右比例控制
 map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
-map("n", "<C-Left>", ":vertical resize-2<CR>", opt)
-map("n", "s", ":vertical resize -20<CR>", opt)
+map("n", "s,", ":vertical resize -20<CR>", opt)
 map("n", "s.", ":vertical resize +20<CR>", opt)
--- 上下比例控制
-map("n", "sj", ":vertical resize +10<CR>", opt)
-map("n", "sk", ":vertical resize -10<CR>", opt)
-map("n", "<C-Down>", ":vertical resize +2<CR>", opt)
-map("n", "<C-Up>", ":vertical resize -2<CR>", opt)
+-- 上下比例
+map("n", "sj", ":resize +10<CR>", opt)
+map("n", "sk", ":resize -10<CR>", opt)
+map("n", "<C-Down>", ":resize +2<CR>", opt)
+map("n", "<C-Up>", ":resize -2<CR>", opt)
 -- 等比例
 map("n", "s=", "<C-w>=", opt)
 
@@ -91,9 +90,9 @@ map("n", "<C-d>", "10j", opt)
 -- 在visual 模式里粘贴不要复制
 map("v", "p", '"_dP', opt)
 -- 退出
-map("n", "q", ":q<CR>", opt)
-map("n", "qq", ":q!<CR>", opt)
-map("n", "Q", ":qa!<CR>", opt)
+--map("n", "q", ":q<CR>", opt)
+--map("n", "qq", ":q!<CR>", opt)
+--map("n", "Q", ":qa!<CR>", opt)
 -- insert 模式下，跳到行首行尾
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
@@ -160,7 +159,81 @@ pluginKeys.telescopeList = {
   }
 }
 
+-- lsp 回调函数快捷键设置（所有Language Server通用）
+pluginKeys.mapLSP = function(mapbuf)
+  -->>>>>>>>>>> 将之前设置的快捷键替换为lspsaga 提供的命令 <<<<<<<<<<<<<<-- 
+  -- 例如：
+  -- mapbuf("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
+  -- 替换为:
+  -- mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
+  -------------------------------------------------------------------------
+
+  --  变量重命名
+  -- mapbuf("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
+  mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
+  -- 
+  --mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
+  mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
+  
+  -- go xx
+  -- 跳转到定义
+  -- mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
+  mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
+  -- 悬停提示
+  --mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
+  mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
+  mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
+  mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+
+  -- 查找引用
+  --mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
+  mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
+  
+  -- diagnostic
+  --[[
+  mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
+  mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
+  mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
+  --]]
+  mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
+  mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
+  mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
+  mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.format{async=true}<CR>", opt)
+  
+  -- 没用到
+  -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
+  -- mapbuf("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
+  -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
+  -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
+  -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
+  -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+end
+
+-- nvim-cmp 自动补全相关快捷键设置
+-- nvim-cmp 自动补全
+pluginKeys.cmp = function(cmp)
+    return {
+        -- alt(option) + . 出现补全弹窗
+        ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
+        -- alt(option) + . 取消补全弹窗
+        ["<A-,>"] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close()
+        }),
+        -- 上一个
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        -- 下一个
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        -- 确认
+        ["<CR>"] = cmp.mapping.confirm({
+            select = true,
+            behavior = cmp.ConfirmBehavior.Replace
+        }),
+        -- 如果窗口内容太多，可以滚动
+        ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
+        ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
+    }
+end
 
 -->>>>>>>>>>>>>>>>>>>>>>>>>>>> 插件快捷键设置 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<--
 return pluginKeys
-
