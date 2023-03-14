@@ -21,3 +21,5 @@ chris@machine")
   - Linux/MacOS: 克隆到 ~/.config/nvim 文件夹中
 4. 确保安装Neovim插件包管理工具[packer.nvim](https://github.com/wbthomason/packer.nvim)
 5. 使用nvim命令打开编辑器，运行`:PackerSync`命令
+
+![Alt](https://repobeats.axiom.co/api/embed/6d031ecba34776c0f2eb6598f016986e3e84a765.svg "Repobeats analytics image")
