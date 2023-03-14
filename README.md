@@ -19,3 +19,5 @@ chris@machine")
 2. 确保已经安装一种[Nerd fonts](https://www.nerdfonts.com/font-downloads)字体
 3. 克隆仓库配置文件到本地
   - Linux/MacOS: 克隆到 ~/.config/nvim 文件夹中
+4. 确保安装Neovim插件包管理工具[packer.nvim](https://github.com/wbthomason/packer.nvim)
+5. 使用nvim命令打开编辑器，运行`:PackerSync`命令
