@@ -20,6 +20,6 @@ chris@machine")
 3. 克隆仓库配置文件到本地
   - Linux/MacOS: 克隆到 ~/.config/nvim 文件夹中
 4. 确保安装Neovim插件包管理工具[packer.nvim](https://github.com/wbthomason/packer.nvim)
-5. 使用nvim命令打开编辑器，运行`:PackerSync`命令
+5. 使用nvim命令打开编辑器，直接运行`:PackerSync`命令（第一次打开编辑器会报错，是因为配置的插件还没有通过packer拉取下来）
 
 ![Alt](https://repobeats.axiom.co/api/embed/6d031ecba34776c0f2eb6598f016986e3e84a765.svg "Repobeats analytics image")
