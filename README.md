@@ -1,4 +1,4 @@
-s# 个人Neovim配置
+# 个人Neovim配置
 
 ## 参考
 - [Neovim IDE from Scratch](https://www.youtube.com/watch?v=ctH-a-1eUME&t=11s "Youtube - 
