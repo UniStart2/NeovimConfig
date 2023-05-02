@@ -194,10 +194,10 @@ packer.startup({
   -- 如果网络不好，可以配置config参数，使用代理站点
   config = {
     -- 并发限制
-    max_jobs = 16,
+    max_jobs = 8,
     -- 自定义源
     git = {
-      --default_url_format = "git@github.com:%s",
+     -- default_url_format = "git@github.com:%s",
     },
     -- 以浮动窗口打开安装列表
     display = {
