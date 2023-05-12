@@ -33,7 +33,7 @@ mason.setup({
 mason_config.setup({
   ensure_installed = {
     "arduino_language_server",
-    "asm_lsp",
+    --"asm_lsp",
     "bashls",
     "clangd",
     "csharp_ls",
@@ -44,23 +44,23 @@ mason_config.setup({
     "denols",
     "dockerls",
     "elixirls",
-    "erlangls",
+    --"erlangls",
     "gopls", -- golang
     "gradle_ls",
     "graphql",
-    "groovyls",
+    --"groovyls",
     "html",
     -- "hsl", -- haskell 貌似存在问题
     "jsonls",
     "jdtls", -- java
     "julials",
     "kotlin_language_server",
-    "lua_ls", 
+    "lua_ls", -- lua
     "marksman",
-    "nimls", 
-    "phpactor", -- php
+    --"nimls", 
+    --"phpactor", -- php
     "pyright", -- python
-    "r_language_server",
+    --"r_language_server",
     "ruby_ls", -- ruby
     "rust_analyzer", -- rust
     "sqlls", -- sql
@@ -72,8 +72,7 @@ mason_config.setup({
     "volar", -- vue
     "lemminx", -- xml
     "yamlls", -- yaml
-    "zls", -- zig
-    "lua_ls", -- lua
+    --"zls", -- zig
   },
 })
 

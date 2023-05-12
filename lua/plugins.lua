@@ -13,8 +13,6 @@ packer.startup({
     -- https://github.com/wbthomason/packer.nvim 地址
     
     --------------------- colorscheme 插件 -------------------------
-    -- tokyonight
-    -- use "folke/tokyonight.nvim" 
     use "EdenEast/nightfox.nvim"
     use "sainnhe/sonokai"
     use "Mofiqul/dracula.nvim"
