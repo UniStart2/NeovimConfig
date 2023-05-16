@@ -33,7 +33,7 @@ mason.setup({
 mason_config.setup({
   ensure_installed = {
     "arduino_language_server",
-    --"asm_lsp",
+    "asm_lsp",
     "bashls",
     "clangd",
     "csharp_ls",
@@ -50,7 +50,7 @@ mason_config.setup({
     "graphql",
     --"groovyls",
     "html",
-    -- "hsl", -- haskell 貌似存在问题
+    "hsl", -- haskell
     "jsonls",
     "jdtls", -- java
     "julials",
@@ -58,7 +58,7 @@ mason_config.setup({
     "lua_ls", -- lua
     "marksman",
     --"nimls", 
-    --"phpactor", -- php
+    "phpactor", -- php
     "pyright", -- python
     --"r_language_server",
     "ruby_ls", -- ruby
